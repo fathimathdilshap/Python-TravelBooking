@@ -1,0 +1,59 @@
+ {% include 'user_header.html' %}
+
+ <center>
+<div  style="background: url(/static/assets/img/hero.jpg) no-repeat center / cover; 
+    height: 800px;
+    width: 100%;
+    display: table; 
+    position: relative;">
+        <div class="hero-content">
+            <div class="hero-text">
+
+    <body>
+                <h2 style="color: white">View Details</h2>
+
+                <form method="post">
+        <table border="10" class="table"  style="width: 900px;background-color: white">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                 <th>Address</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Place</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Idproof</th>
+                <th>Status</th>
+
+             </tr>
+            {% for row in data['user'] %}
+            <tr>
+                <td>{{row['Firstname']}}</td>
+                <td>{{row['Lastname']}}</td>
+                <td>{{row['Address']}}</td>
+                <td>{{row['Age']}}</td>
+                <td>{{row['Gender']}}</td>
+                <td>{{row['Place']}}</td>
+                <td>{{row['Phoneno:']}}</td>
+                <td>{{row['Email']}}</td>
+                <td>{{row['Idproof']}}</td>
+                <td>{{row['rstatus']}}</td>
+                {% if row['rstatus']=='pending' %}
+                
+                    <td><a href="?action=accept&rid={{row['Request_id'] }}&tid={{data['tid']}}">Accept</a></td>
+                    <td><a href="?action=reject&rid={{row['Request_id'] }}&tid={{data['tid']}}">Reject</a></td>
+                {% endif %}
+               
+             
+            </tr>
+            {% endfor %}
+        </table>
+     </form>  
+
+     </body>
+ </div>
+</div>
+</div>
+ </center>
+ {% include 'footer.html' %}

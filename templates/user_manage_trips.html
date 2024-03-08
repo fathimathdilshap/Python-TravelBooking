@@ -1,0 +1,93 @@
+{% include 'user_header.html' %}
+
+<center>
+
+<div  style="background: url(/static/assets/img/hero.jpg) no-repeat center / cover; 
+    height: 800px;
+    width: 100%;
+    display: table;
+    position: relative;">
+        <div class="hero-content">
+            <div class="hero-text">
+            	<center>
+                <body><br>
+       <h1 style="font-size:35px;color: black">Manage Trip</h1>
+	<form method="post"><br>
+		<table>
+			<tr>
+				<th style="font-size:20px">Place</th>
+				<td><input class="form-control" placeholder="Place" name="Place"></td>
+			</tr>
+			<tr>
+				<th style="font-size:20px">Vehicle</th>
+				<td><input class="form-control" placeholder="Vehicle" name="Vehicle"></td>
+			</tr>
+			<tr>
+				<th style="font-size:20px">Description</th>
+				<td><input class="form-control"placeholder="Description" name="Description"></td>
+			</tr>
+			<tr>
+				<th style="font-size:20px">Trip start date</th>
+				<td><input class="form-control" placeholder="Tripstartdate" name="Tripstartdate"></td>
+			</tr>
+            <tr>
+				<th style="font-size:20px">Trip end date</th>
+				<td><input class="form-control" placeholder="Tripenddate" name="Tripenddate"></td>
+			</tr>
+			</tr>
+			<tr>
+				<th style="font-size:20px">Start time</th>
+				<td><input class="form-control" placeholder="Starttime" name="Starttime"></td>
+			</tr>
+			<tr>
+				<th style="font-size:20px">Start Place</th>
+				<td><input class="form-control" placeholder="StartPlace:" name="StartPlace"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center" style="font-size: 27px"><input type="submit" name="Submit" class="btn btn-primary" value="Submit"></td>
+			</tr>
+	</table>
+</center><br>
+<br>
+	<table border="10" class="table" style="width: 900px;background-color: white">
+	<tr>
+        <th>Place</th>
+        <th>Vehicle</th>
+        <th>Description</th>
+        <th>Trip start date</th>
+        <th>Trip end date</th>
+        <th>Start time</th>
+        <th>Start Place</th>
+        <th>View Request</th>
+        <th>Add Image/Video</th>
+        <th>Feedback</th>
+     </tr>
+   {% for row in data['user'] %}
+
+   <tr>
+        <td>{{row['Place']}}</td>
+        <td>{{row['Vehicle']}}</td>
+        <td>{{row['Description']}}</td>
+        <td>{{row['Tripstartdate']}}</td>
+        <td>{{row['Tripenddate']}}</td>
+        <td>{{row['Starttime']}}</td>
+        <td>{{row['Startplace']}}</td>
+        <td><a href="user_view_trips_request?tid={{row['Trips_id']}}">View Request</a></td>
+        <td><a href="user_add_image?tid={{row['Trips_id']}}">Add</a></td>
+        <td><a href="user_view_feedback?tid={{row['Trips_id']}}">View</a></td>
+
+
+   </tr>
+
+   {% endfor %}
+</table>
+
+</form>
+</body>
+</div>
+</div>
+</div>
+</center>
+
+
+{% include 'footer.html' %}

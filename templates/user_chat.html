@@ -1,0 +1,52 @@
+{% include 'user_header.html' %}
+
+<center>
+
+    <div  style="background: url(/static/assets/img/hero.jpg) no-repeat center / cover; 
+    height: 800px;
+    width: 100%;
+    display: table;
+    position: relative;">
+        <div class="hero-content">
+            <div class="hero-text">
+                    <body>
+                        <center>
+                        <h2 style="color: black" align="center" >{{data['opuname']}}</h2>
+   <form method="post">
+                <table class="table" style="width: 800px;">
+              
+                    {% for row in data['chat'] %}
+                    {% if row['Sender_id'] |int==data['uid'] |int%}
+                    <tr>
+                        <td class="form-control" style="background-color: Gray"> <h1 align="right" style="color: white !important;font-size: 20px">{{row['Message']}}</h1></td>
+                    </tr>
+                       
+                   
+                    
+                    {% else %}
+                     <tr>
+                        <th class="form-control" style="background-color: LightGray"><h1 align="left" style="color: black !important;font-size: 20px">{{row['Message']}}</h1></th>
+                        <td></td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                      
+                    <tr>
+                        <td>
+                            <input type="text" name="msg" style="width: 550px;height: 50px" >
+                            <input type="submit" name="send" value="SEND" style="width: 210px;height: 50px"t class="btn-primary">
+                        </td>
+                    </tr>
+                </table>
+
+
+     </form>
+ </table>
+</form>
+</body>
+</div>
+</div>
+</div>
+</center>
+
+{% include 'footer.html' %}

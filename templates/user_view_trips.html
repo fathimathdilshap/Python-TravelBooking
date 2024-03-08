@@ -1,0 +1,50 @@
+{% include 'user_header.html' %}
+
+
+<center>
+<div  style="background: url(/static/assets/img/hero.jpg) no-repeat center / cover; 
+    height: 800px;
+    width: 100%;
+    display: table;
+    position: relative;">
+        <div class="hero-content">
+            <div class="hero-text">
+   <body>
+        <h2 style="font-size:35px;color: white">View Trips</h2>
+    <form method="post"><br>
+        <table border="10" class="table" style="width: 900px;background-color: white">
+            <tr>
+            	<th>Firstname</th>
+                <th>Place</th>
+                <th>Vehicle</th>
+                <th>Description</th>
+                <th>Tripstartdate</th>
+                <th>Tripenddate</th>
+                <th>Starttime</th>
+                <th>Startplace</th>
+                <th>Request</th>
+                
+             </tr>
+            {% for row in data['user'] %}
+            <tr>
+            	<td>{{row['Firstname'] }}</td>
+                <td>{{row['Place']}}</td>
+                <td>{{row['Vehicle']}}</td>
+                <td>{{row['Description']}}</td>
+                <td>{{row['Tripstartdate']}}</td>
+                <td>{{row['Tripenddate']}}</td>
+                <td>{{row['Starttime']}}</td>
+                <td>{{row['Startplace']}}</td>
+                <td><a href="?action=request&tid={{row['Trips_id']}}">REQUEST</a></td>
+                
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+</body>
+</div>
+</div>
+</div>
+</center>
+
+{% include 'footer.html' %}

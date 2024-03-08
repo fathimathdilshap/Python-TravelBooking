@@ -1,0 +1,39 @@
+{% include 'admin_header.html' %}	
+	<center>
+        <div style="background: url(/static/assets/img/hero.jpg) no-repeat center / cover; 
+    height: 800px;
+    width: 100%;
+    display: table;
+    position: relative;" >
+        <div class="hero-content">
+            <div class="hero-text">
+                <center>
+                	<body>
+                <h2 style="color: white">View Trip</h2>
+    <form method="post">
+        <table border="10" class="table" style="width: 900px;background-color: white">
+            <tr>
+                <th>Category</th>
+                <td><input type="text" name="category"></td>
+            </tr>
+            <tr>
+                <td align="center" colspan="2"><input type="submit" name="submit" value="Add" class="btn btn-success"></td>
+            </tr>
+        </table>
+    </form>
+    <h1>Categories</h1>
+    <table border="10" class="table" style="width: 900px;background-color: white">
+        <tr>
+            <th>Category name</th>
+        </tr>
+        {% for row in data['cat'] %}
+        <tr>
+            <td>{{row['Vehicle']}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+</div>
+</div>
+</center>
+{% include 'footer.html' %}

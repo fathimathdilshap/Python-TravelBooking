@@ -1,0 +1,57 @@
+{% include 'user_header.html' %}
+
+<center>
+
+    <div  style="background: url(/static/assets/img/hero.jpg) no-repeat center / cover; 
+    height: 800px;
+    width: 100%;
+    display: table;
+    position: relative;">
+        <div class="hero-content">
+            <div class="hero-text">
+                    <body>
+                <h2 style="color: white">View Request</h2>
+    <form method="post">
+        <table border="10" class="table" style="width: 900px;background-color: white" >
+            <tr>
+            
+                <th>Description</th>
+                
+                <th>Status</th> 
+                <th>Date</th>
+               
+              
+            </tr>
+         {% for row in data['req'] %}
+         <tr>
+                
+                <td>{{row['Description']}}</td>
+
+                <td>{{row['Status']}}</td>
+                <td>{{row['Date']}}</td>
+                <td><a href="user_viewplannerinfo?pid={{row['User_id']}}">View Details</a></td>
+                <td><a href="?action=accept&rid={{row['Request_id']}}&cid={{data['cid']}}">Accept</a></td>
+                <td><a href="?action=reject&rid={{row['Request_id']}}&cid={{data['cid']}}">Reject</a></td>
+               
+               <td><a href="user_add_images?tid={{row['Trip_id']}}">Add images</a></td>
+               <td><a href="user_add_feedback?tid={{row['Trip_id']}}">Add feedback</a></td>
+               <td><a href="user_view_chatted_users?Request_id={{ row['Request_id'] }}">CHAT</a></td>
+
+               
+                
+
+
+        </tr>
+
+         {% endfor %}
+
+     </form>
+ </table>
+</form>
+</body>
+</div>
+</div>
+</div>
+</center>
+
+{% include 'footer.html' %}
